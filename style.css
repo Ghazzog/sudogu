@@ -1,0 +1,182 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    
+}
+
+.container {
+    flex: 1;                     /* Fills the remaining space */
+}
+
+
+body {
+    font-family: 'Caveat', 'Shadows Into Light', cursive;
+    background-color: #e9dabf;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    
+}
+
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    flex: 1;
+    margin: 0px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);  /* Adjusted to make it more Sudoku-like */
+    grid-template-rows: repeat(9, 1fr);  /* Adjust to match the number of rows needed */
+    width: 100vw;
+    height: 90vh;  /* Outer border of the Sudoku */
+
+
+}
+
+.grid-item {
+    display: flex;
+    justify-content: center;    /* Center content horizontally */
+    align-items: center;        /* Center content vertically */
+    border: 1px solid black;    
+    aspect-ratio: 1 / 1;        /* Maintain square shape */
+    height: 100%;               /* Fill the height */
+    position: relative;         /* Necessary for absolute positioning */
+    margin-bottom: 0;
+}
+
+.icon-link {
+    display: flex;           /* Make link a flex container */
+    justify-content: center; /* Center the icon horizontally */
+    align-items: center;     /* Center the icon vertically */
+    color: black;            /* Default icon color */
+    height: 100%;            /* Make the link fill the grid item */
+    width: 100%;             /* Make the link fill the grid item */
+    text-decoration: none;   /* Remove underline */
+    transition: background-color 0.3s; /* Smooth transition for hover */
+}
+
+.icon-link i {
+    font-size: 3rem;        /* Adjust icon size */
+    line-height: 1;  
+    margin-top: 40px;       /* Ensure no extra space around the icon */ /* Smooth transition for color change */
+}
+
+.icon-link:hover i {
+    color: rgb(185, 26, 26);  
+    font-size: 3rem;        /* Adjust icon size */
+    line-height: 1;  
+    margin-top: 50px;    
+    justify-content: center; /* Center the icon horizontally */
+    align-items: center;           /* Change the icon color on hover */
+}
+
+
+.grid-item {
+    display: flex;
+    justify-content: center;    /* Center content horizontally */
+    align-items: center;        /* Center content vertically */
+    border: 1px solid black;    
+    aspect-ratio: 1 / 1;        /* Maintain square shape */
+    height: 100%;               /* Fill the height */
+    position: relative;         /* Necessary for absolute positioning */
+}
+
+
+.grid-item h1 {
+    font-family: 'Caveat', 'Shadows Into Light', cursive;  /* Handwritten font */
+    font-size: 4rem;          /* Adjust size based on your preference */
+    margin-top: 60px;                /* Remove default margin */
+    line-height: 1;           /* Ensure no extra spacing */
+}
+
+
+.grid-item:hover {
+    background-color: rgb(41, 40, 40);
+}
+
+.grid-item:hover a {
+    display: flex;
+    justify-content: center;    /* Center content horizontally */
+    align-items: center;  
+}
+
+.grid-item:hover h1{
+    color: rgb(185, 26, 26);
+}
+
+.image-section {
+    position: fixed;            /* Make the image fixed to the viewport */
+    bottom: 00px;              /* Adjust as needed for spacing from the bottom */
+    right: 50px;               /* Adjust as needed for spacing from the right */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;               /* Ensure it stays on top */
+}
+
+
+
+.footer {
+    width: 100%;
+    background-color: #333;      /* Dark background for footer */
+    color: white;                /* White text */
+    text-align: left;          /* Center text */
+    padding: 10px 0;             /* Padding for breathing space */
+    position: relative;             /* Fix it to the bottom */
+    bottom: 0;                   /* Stick it to the bottom of the viewport */
+    left: 0;
+    z-index: 2;                  /* Ensure it stays above other elements */
+}
+
+.footer p {
+    margin-left: 100px;  
+    margin-top: 10px;                 /* Remove default paragraph margin */
+    font-size: 2rem;             /* Adjust font size */
+    display: inline-block;
+    animation: slideText 10s linear infinite; 
+}
+
+/* Keyframes for sliding effect */
+@keyframes slideText {
+    0% {
+        transform: translateX(100%);  /* Start off-screen on the right */
+    }
+    100% {
+        transform: translateX(-100%); /* End off-screen on the left */
+    }
+}
+
+
+
+
+@media (max-width: 1024px) {
+    .image-section  {
+        position: fixed;         /* Fix the image behind all content */
+        bottom: 0;               /* Stick to bottom */
+        right: 0;                /* Align to the right */
+        width: 100%;             /* Scale to fit the width of the screen */
+        height: auto;
+        z-index: -1;             /* Keep it behind the grid and footer */
+        opacity: 0.2;            /* Increase transparency for better visibility of text and icons */
+    }
+
+    .grid {
+        z-index: 2;              /* Ensure the grid appears above the image */
+    }
+
+    .footer {
+        z-index: 3;              /* Ensure the footer stays above the image */
+    }
+}
+
